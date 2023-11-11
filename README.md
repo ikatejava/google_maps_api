@@ -1,4 +1,7 @@
-﻿# Демо-проект по автоматизации тестирования Google Maps API от Rahul Shetty Academy <p align="center"> [<img src="https://rahulshettyacademy.com/blog/wp-content/uploads/2020/10/rs_logo.png" width="300" height="290">](https://rahulshettyacademy.com/)  </p>
+# ﻿<p align="center"> Демо-проект по автоматизации тестирования Google Maps API от Rahul Shetty Academy 
+# <p align="center"> [<img src="https://rahulshettyacademy.com/blog/wp-content/uploads/2020/10/rs_logo.png" width="300" height="290">](https://rahulshettyacademy.com/) </p>
+  
+
 
 > [Rahul Shetty Academy](https://rahulshettyacademy.com/) - тренировочная платформа для QA-студентов и инженеров.
 
@@ -49,5 +52,116 @@ ____
 - Удаленный запуск реализован в [Jenkins](https://jenkins.autotests.cloud/) с формированием <code>Allure</code>-отчета.
 - Подключена отправка уведомлений о результатах запуска сборки в <code>Telegram</code> при помощи бота.
 - Осуществлена интеграция с [Allure TestOps](https://allure.autotests.cloud/) и [Jira](https://jira.autotests.cloud/).
+
+____
+
+<a id="cases"></a>
+> ## :ballot_box_with_check: <a name="Примеры автоматизированных тест-кейсов">Примеры автоматизированных тест-кейсов:</a>
+
+- Создание новой локации;
+- Проверка возможности получения информации о созданной локации;
+- Проверка невозможности получения данных по несуществующей в системе локации;
+- Измененение данных в описании локации;
+- Проверка невозможности изменения данных в несуществующей локации;
+- Удаление локации;
+- Проверка невозможности удаления несуществующей локации.
+  
+  ____
+
+  <a id="jenkins"></a>
+> ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logos/Jenkins.svg"> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/google_maps_api/)
+
+Для запуска сборки необходимо перейти в раздел <code>Build with Parameters</code> и нажать кнопку <code>Build</code>.
+
+<p align="center">
+<img title="Jenkins Build" src="media/screens/jenkins_build.png">
+</p>
+
+После выполнения сборки в блоке <code>Build History</code> напротив номера сборки появляются значки <code>Allure
+Report</code> и <code>Allure TestOps</code>, при клике на которые открываются страницы со сформированным html-отчетом и
+тестовой документацией соответственно.
+____
+
+<a id="console"></a>
+> ## :ballot_box_with_check: <a name="Запуск тестов из терминала">**Запуск тестов из терминала:**</a>
+
+### Команда для терминала IDE для локального запуска тестов:
+
+```
+gradle clean test
+```
+
+____
+
+<a id="allure"></a>
+> ## <img alt="Allure" height="25" src="media/logos/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [Report](https://jenkins.autotests.cloud/job/google_maps_api/2/allure/)</a>
+
+### Основная страница отчёта
+
+<p align="center">  
+<img title="Allure Overview Dashboard" src="media/screens/allure_main.png" width="850">  
+</p>  
+
+### Тест-кейсы
+
+<p align="center">  
+<img title="Allure Tests" src="media/screens/allure_create_new_location_case.png" width="850">  
+
+<img title="Allure Tests" src="media/screens/allure_check_location_success_test.png" width="850">
+</p>
+
+### Графики
+
+<p align="center">  
+<img title="Allure Graphics" src="media/screens/allure_graph1.png" width="850">
+
+<img title="Allure Graphics" src="media/screens/allure_graph2.png" width="850">  
+</p>
+
+____
+
+<a id="allure-testops"></a>
+> ## <img src="media/logos/Allure_TO.svg" title="Allure TestOps" width="4%"/> </a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/launch/31764">Allure TestOps</a>
+
+Выполнена интеграция сборки <code>Jenkins</code> с <code>Allure TestOps</code>.
+Результат выполнения автотестов отображается в <code>Allure TestOps</code>
+На Dashboard в <code>Allure TestOps</code> отображена статистика пройденных тестов.
+
+## Allure TestOps Dashboard
+
+<p align="center">  
+<img title="Allure TestOps Dashboard" src="media/screens/allure_to_dashboards.png" width="850">
+</p>  
+
+## Тест-кейсы
+
+<p align="center">  
+<img title="Allure Tests" src="media/screens/allure_to_update_location_success.png" width="850">  
+
+<img title="Allure Tests" src="allure_to_delete_location_failure_case.png" width="850">  
+</p>
+
+____
+
+<a id="jira"></a>
+
+> ## <img src="media/logos/Jira.svg" title="Jira" width="4%"/> </a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-949">Jira</a>
+
+<p align="center">  
+<img title="Jira" src="media/screens/jira_plus_allure_to.png" width="850">  
+</p>
+
+____
+
+<a id="telegram"></a>
+
+## <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logos/Telegram.svg"> Уведомления в Telegram с помощью бота
+
+После завершения сборки созданный в <code>Telegram</code> бот автоматически обрабатывает результаты и отправляет
+уведомление со ссылкой на отчет.
+
+<p align="center">
+<img width="70%" title="Telegram Notifications" src="media/screens/tg_notification_msg.png">
+</p>
 
 ____
