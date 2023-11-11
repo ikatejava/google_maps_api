@@ -1,0 +1,84 @@
+plugins {
+    id 'java-library'
+    id 'io.freefair.lombok' version '8.4'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group = 'com.rahulshettyacademy'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def jUnitJupiterVersion = "5.10.1",
+    restAssuredVersion = "5.3.2",
+    slf4jSimpleVersion = "2.0.9",
+    javaFakerVersion = "1.0.2",
+    allureRestAssuredVersion = "2.24.0"
+
+dependencies {
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter:$jUnitJupiterVersion",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "org.slf4j:slf4j-simple:$slf4jSimpleVersion",
+            "io.rest-assured:json-schema-validator:$restAssuredVersion",
+            "com.github.javafaker:javafaker:$javaFakerVersion",
+            "io.qameta.allure:allure-rest-assured:$allureRestAssuredVersion")
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task positive_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("positive")
+    }
+}
+
+task negative_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("negative")
+    }
+}
+
+task post_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("post")
+    }
+}
+
+task get_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("get")
+    }
+}
+
+task put_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("put")
+    }
+}
+
+task delete_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("delete")
+    }
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
