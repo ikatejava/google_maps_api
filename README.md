@@ -138,7 +138,7 @@ ____
 <p align="center">  
 <img title="Allure Tests" src="media/screens/allure_to_update_location_success.png" width="850">  
 
-<img title="Allure Tests" src="allure_to_delete_location_failure_case.png" width="850">  
+<img title="Allure Tests" src="media/screens/allure_to_delete_location_failure_case.png" width="850">  
 </p>
 
 ____
